@@ -96,7 +96,7 @@ def banner(title, crumb, img):
   <!-- PAGE BANNER -->
   <section class="pagebanner" style="background-image:url('images/{img}')">
     <div class="pagebanner__ov"></div>
-    <div class="container pagebanner__inner" data-aos="fade-up">
+    <div class="container pagebanner__inner">
       <h1>{title}</h1>
       <p class="crumb"><a href="index.html">Home</a> <i class="fa-solid fa-angle-right"></i> {crumb}</p>
     </div>
@@ -120,13 +120,16 @@ def page(filename, active, title, desc, banner_html, *section_names):
 
 BASE = "Grace Distribution — Excellence in Fuel Distribution Network"
 
-# HOME (hero, not banner)
-home_top = fix_links(S["HERO (slider)"] + S["FUEL PRODUCT STRIP"] + S["FEATURES"] +
-                     S["ABOUT"] + S["COUNTERS"] + S["VIDEO / CTA BANNER"] + S["QUALITY CTA BAND"])
+# HOME (full single page — every section, hero instead of banner)
+HOME_ORDER = ["HERO (slider)","FUEL PRODUCT STRIP","FEATURES","ABOUT","SERVICES",
+              "GALLERY","COUNTERS","TEAM","VIDEO / CTA BANNER","FACILITY / CAPABILITIES",
+              "SUPPLY SOLUTIONS (Pricing layout)","QUALITY CTA BAND","FAQ","TESTIMONIALS",
+              "VALUED CUSTOMERS","BRAND PARTNERS","CONTACT"]
+home_body = fix_links("".join(S[name] for name in HOME_ORDER))
 (ROOT / "index.html").write_text(
     head(f"{BASE} | High Speed Diesel Supply Pakistan",
          "Grace Petroleum (SMC-Private) Limited — premier High Speed Diesel supply, free doorstep delivery & 24/7 service across Pakistan.")
-    + header("index.html") + home_top + FOOT + SCRIPTS)
+    + header("index.html") + home_body + FOOT + SCRIPTS)
 print("wrote index.html")
 
 page("about.html","about.html", f"About Us | {BASE}",
