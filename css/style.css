@@ -66,6 +66,19 @@ h2{font-size:clamp(1.7rem,3.4vw,2.5rem)}
 .nav{display:flex;align-items:center;gap:1.5rem;margin-left:auto}
 .nav>a{font-family:'Poppins',sans-serif;font-weight:500;font-size:.93rem;color:#222;position:relative;transition:.2s}
 .nav>a:hover{color:var(--accent)}
+.nav>a.active{color:var(--accent)}
+.nav>a.active::after,.nav>a:not(.header__cta)::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--accent);transition:.25s}
+.nav>a.active::after{width:100%}
+.nav>a:hover::after{width:100%}
+
+/* Page banner (inner pages) */
+.pagebanner{position:relative;padding:5rem 0 4.2rem;color:#fff;text-align:center;background-size:cover;background-position:center}
+.pagebanner__ov{position:absolute;inset:0;background:linear-gradient(rgba(10,10,10,.84),rgba(20,20,20,.74))}
+.pagebanner__inner{position:relative;z-index:2}
+.pagebanner h1{color:#fff;font-size:clamp(2rem,4.6vw,3.2rem);text-transform:capitalize;text-shadow:0 8px 30px rgba(0,0,0,.4)}
+.pagebanner .crumb{margin-top:.9rem;font-family:'Poppins',sans-serif;font-weight:500;letter-spacing:.5px;color:#e6e6e6;font-size:.95rem}
+.pagebanner .crumb a{color:var(--accent)}
+.pagebanner .crumb i{margin:0 .55rem;font-size:.72rem;color:#bbb}
 .header__cta{flex:none}
 .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px;margin-left:auto}
 .nav-toggle span{width:26px;height:3px;background:#171717;border-radius:2px;transition:.3s}

@@ -1,3 +1,5 @@
 .DS_Store
 *.log
-TemporaryItems
+_s_*.html
+_pg_*.png
+_*.png
